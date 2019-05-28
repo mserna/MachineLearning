@@ -26,14 +26,11 @@ class EstimateGuassian(object):
 
         mu = self.__x_data.mean() # Compute mean
         sigma2 = self.__x_data.var() # Compute variance
-        print("mu: \n{}".format(mu))
-        print('\n')
-        print("Sigma2: \n{}".format(sigma2))
 
         return [mu, sigma2]
 
     def plot_data(self):
         cpu_metrics = self.__x_data['CPU']
         mem_metrics = self.__x_data['Memory']
-        plt.scatter(cpu_metrics[:], mem_metrics[:])
+        plt.scatter(cpu_metrics[:], mem_metrics[:], marker="x")
         plt.show()
