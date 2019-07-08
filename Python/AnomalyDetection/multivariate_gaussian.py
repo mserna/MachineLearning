@@ -10,7 +10,7 @@ Author: mserna
 import numpy
 import pandas as pd
 import math
-from scipy.stats import norm
+import scipy.stats as stats
 import matplotlib.pyplot as plt
 
 class MultivariateGaussian(object):
@@ -36,7 +36,7 @@ class MultivariateGaussian(object):
         # Calculate probablity density function
         # p = (2 * pi) ^ (- k / 2) * det(Sigma2) ^ (-0.5) * exp(-0.5 * sum(bsxfun(@times, X * pinv(Sigma2), X), 2));
         # prob_dens_func = 1 / ( (2*numpy.pi)**(k/2) * (numpy.linalg.det(self.__sigma2)**0.5) ) * numpy.exp(-0.5 * numpy.sum(X * numpy.linalg.pinv(self.__sigma2) * X,axis=1))
-        prob_dens_func = norm.pdf(X)
+        prob_dens_func = stats.norm.pdf(X)
         plt.plot(X,prob_dens_func)
         plt.show()
 
